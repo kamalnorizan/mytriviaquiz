@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mytriviaquiz/answer.dart';
 import 'package:mytriviaquiz/question.dart';
 
 // void main() => runApp(MyApp());
@@ -47,31 +48,7 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             children: [
               Question(questionText: questions[questionIndex]),
-              Container(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    answerQuestion();
-                  },
-                  child: Text('Answer 1'),
-                ),
-              ),
-              Container(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () => answerQuestion(),
-                  child: Text('Answer 2'),
-                ),
-              ),
-              Container(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    answerQuestion();
-                  },
-                  child: Text('Answer 3'),
-                ),
-              ),
+              Answer(answerQuestion),
             ],
           ),
         ),
