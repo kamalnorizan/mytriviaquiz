@@ -16,56 +16,28 @@ class MyApp extends StatelessWidget {
           title: Text('My First App'),
           backgroundColor: Colors.brown,
         ),
-        body: Container(
-          child: Column(
-            children: [
-              Container(
-                width: double.infinity,
-                height: 200,
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-                child: Center(
-                  child: Text('Test'),
-                ),
-              ),
-              Container(
-                width: double.infinity,
-                height: 200,
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                ),
-                child: Center(
-                  child: Text('Test'),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    width: 200,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                    ),
-                    child: Center(
-                      child: Text('Test'),
-                    ),
-                  ),
-                  Container(
-                    width: 200,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      color: Colors.red,
-                    ),
-                    child: Center(
-                      child: Text('Test'),
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
+        body: Column(
+          children: [
+            Text('The Question'),
+            ElevatedButton(
+              onPressed: () {
+                print('Pressed Button 1');
+              },
+              child: Text('Answer 1'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                print('Pressed Button 2');
+              },
+              child: Text('Answer 2'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                print('Pressed Button 3');
+              },
+              child: Text('Answer 3'),
+            ),
+          ],
         ),
       ),
     );
