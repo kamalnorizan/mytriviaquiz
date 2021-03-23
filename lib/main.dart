@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mytriviaquiz/question.dart';
 
 // void main() => runApp(MyApp());
 
@@ -41,34 +42,38 @@ class _MyAppState extends State<MyApp> {
           title: Text('My First App'),
           backgroundColor: Colors.brown,
         ),
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-              child: Center(
-                child: Text(
-                  questions[questionIndex],
-                  style: TextStyle(fontSize: 35),
+        body: Container(
+          width: double.infinity,
+          child: Column(
+            children: [
+              Question(questionText: questions[questionIndex]),
+              Container(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    answerQuestion();
+                  },
+                  child: Text('Answer 1'),
                 ),
               ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                answerQuestion();
-              },
-              child: Text('Answer 1'),
-            ),
-            ElevatedButton(
-              onPressed: () => answerQuestion(),
-              child: Text('Answer 2'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                answerQuestion();
-              },
-              child: Text('Answer 3'),
-            ),
-          ],
+              Container(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () => answerQuestion(),
+                  child: Text('Answer 2'),
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    answerQuestion();
+                  },
+                  child: Text('Answer 3'),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
