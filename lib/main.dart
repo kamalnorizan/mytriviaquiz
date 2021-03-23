@@ -17,9 +17,18 @@ class _MyAppState extends State<MyApp> {
   var questionIndex = 0;
 
   var questions = [
-    'What\'s your favorite color',
-    'What\'s your favorite animal',
-    'What\'s your favorite car',
+    {
+      'questionText': 'What\'s your favorite color',
+      'answers': ['Black', 'Red', 'Green', 'White']
+    },
+    {
+      'questionText': 'What\'s your favorite animal',
+      'answers': ['Cat', 'Dog', 'Tiger']
+    },
+    {
+      'questionText': 'What\'s your favorite car',
+      'answers': ['MyVi', 'Viva', 'X70', 'X50']
+    },
   ];
 
   void answerQuestion() {
@@ -47,7 +56,7 @@ class _MyAppState extends State<MyApp> {
           width: double.infinity,
           child: Column(
             children: [
-              Question(questionText: questions[questionIndex]),
+              Question(questionText: questions[questionIndex]['questionText']),
               Answer(answerQuestion),
             ],
           ),
