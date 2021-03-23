@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mytriviaquiz/answer.dart';
 import 'package:mytriviaquiz/question.dart';
+import 'package:mytriviaquiz/quiz.dart';
 
 // void main() => runApp(MyApp());
 
@@ -14,9 +15,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+  var _questionIndex = 0;
 
-  var questions = [
+  var _questions = [
     {
       'questionText': 'What\'s your favorite color',
       'answers': ['Black', 'Red', 'Green', 'White']
@@ -31,16 +32,16 @@ class _MyAppState extends State<MyApp> {
     },
   ];
 
-  void answerQuestion() {
+  void _answerQuestion() {
     setState(() {
-      questionIndex = questionIndex + 1;
+      _questionIndex = _questionIndex + 1;
     });
-    if (questionIndex >= 3) {
+    if (_questionIndex >= 3) {
       setState(() {
-        questionIndex = 0;
+        _questionIndex = 0;
       });
     }
-    print(questionIndex);
+    print(_questionIndex);
   }
 
   @override
@@ -52,17 +53,17 @@ class _MyAppState extends State<MyApp> {
           title: Text('My First App'),
           backgroundColor: Colors.brown,
         ),
-        body: Container(
-          width: double.infinity,
-          child: Column(
-            children: [
-              Question(questionText: questions[questionIndex]['questionText']),
-              ...(questions[questionIndex]['answers'] as List<String>)
-                  .map((answer) {
-                return Answer(answerQuestion, answer);
-              }).toList(),
-            ],
-          ),
+        body: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              child: Quiz(_questions, _questionIndex, _answerQuestion),
+            ),
+            Container(
+              width: double.infinity,
+              child: Quiz(_questions, _questionIndex, _answerQuestion),
+            ),
+          ],
         ),
       ),
     );
